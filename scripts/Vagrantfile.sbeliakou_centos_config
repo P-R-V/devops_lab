@@ -2,5 +2,9 @@ Vagrant.configure("2") do |config|
     config.vm.box = "sbeliakou/centos"
     config.vm.network :private_network, ip: "192.168.242.242"
     config.vm.provision "shell", path: "../scripts/ext/install_git.sh"
-    config.vm.provision "shell", path: "../scripts/ext/install_python.sh"
+    config.vm.provision "shell", path: "../scripts/ext/install_python.sh", privileged: false
+    config.vm.provision "shell", path: "../scripts/pyenv_install_python_2.sh", privileged: false
+    config.vm.provision "shell", inline: "python hello_world.py", privileged: false
+#    config.vm.provision "shell", path: "../scripts/pyenv_install_python_3.sh", privileged: false
+#    config.vm.provision "shell", inline: "python hello_world.py", privileged: false
 end

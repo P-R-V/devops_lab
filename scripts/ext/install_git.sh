@@ -1,4 +1,4 @@
 source $(dirname $0)/ext/isroot.sh
 
-yum -y install git
+yum -y install git patch
 
